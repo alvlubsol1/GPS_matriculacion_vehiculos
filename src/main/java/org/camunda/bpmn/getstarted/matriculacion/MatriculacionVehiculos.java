@@ -34,6 +34,7 @@ public class MatriculacionVehiculos {
                 LOGGER.info("DNI Validado. Avanzando...");
             })
             .open();
+        
 
         // ---------------------------------------------------------
         // ROBOT 2: VERIFICAR BASTIDOR
