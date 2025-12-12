@@ -36,7 +36,6 @@ public class MatriculacionVehiculos {
             .open();
         
         
-
         // ---------------------------------------------------------
         // ROBOT 2: VERIFICAR BASTIDOR
         // Topic: "verificar-bastidor"
