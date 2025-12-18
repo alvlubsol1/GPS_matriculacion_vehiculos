@@ -6,20 +6,17 @@ public class MailWorker {
 
     public static void main(String[] args) {
         
-        // 1. Conexión a Camunda
+ 
         ExternalTaskClient client = ExternalTaskClient.create()
                 .baseUrl("http://localhost:8080/engine-rest")
                 .asyncResponseTimeout(10000) 
                 .build();
-        
-        // 2. Preparamos la herramienta de envío
+
         SendEmail cartero = new SendEmail();
 
         System.out.println("MAIL WORKER INICIADO. Esperando encargos de correo...");
 
-        // ---------------------------------------------------------
-        // SUSCRIPCIÓN 1: CORREO DE ÉXITO
-        // ---------------------------------------------------------
+      
         client.subscribe("enviar-email")
             .lockDuration(5000)
             .handler((externalTask, externalTaskService) -> {
@@ -40,9 +37,6 @@ public class MailWorker {
                 externalTaskService.complete(externalTask);
             }).open();
 
-        // ---------------------------------------------------------
-        // SUSCRIPCIÓN 2: CORREO DE ERROR
-        // ---------------------------------------------------------
         client.subscribe("enviar-email-error")
             .lockDuration(5000)
             .handler((externalTask, externalTaskService) -> {

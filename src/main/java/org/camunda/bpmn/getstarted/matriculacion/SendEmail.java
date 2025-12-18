@@ -10,11 +10,11 @@ public class SendEmail {
     private static final String HOST = "smtp.gmail.com";
     private static final int PORT = 465;
     private static final String USER = "alvarolubianogps2@gmail.com"; 
-    private static final String PWD = "ddhh dcnn vhaz cxtw"; // Tu clave de aplicación
+    private static final String PWD = "ddhh dcnn vhaz cxtw"; 
 
     public void enviar(String destinatario, String asunto, String mensaje) {
         if (destinatario == null || destinatario.isEmpty()) {
-            System.out.println("⚠️ ERROR: No hay destinatario.");
+            System.out.println("ERROR: No hay destinatario.");
             return;
         }
 
